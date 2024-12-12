@@ -1,67 +1,81 @@
-This is a base node js project template, which anyone can use as it has been prepared,
-by keeping some of the most important code principal and project management recommendations . Feel free to change anything .
+# Node.js Project Template: Your Base for Scalable Applications
 
-`src` -> Inside the src folder all the source code regarding the project will reside,
-this will not include any kind of tests. (You might want to make seperate folder for tests).
+This repository provides a robust Node.js project template designed with essential coding principles and project management recommendations. Whether you're building a small application or a large-scale project, this template is flexible and ready to be tailored to your needs. Feel free to modify it as required.
 
-Lets take a look inside the `src` folder.
+## Directory Structure
 
-`config` -> In this folder anything and everything regarding any configuration or setup of a library or module will be done. 
-For example: Setting up `dotenv` so that we can use the enviroment variables anywhere in a cleaner fashion, this is done in the `server-config.js`.
-One more example can be to setup you logging library that can help you to prepare meaningful logs, so configuration for this library should also be done here.
+### `src`
+The `src` folder is the core of the project, containing all source code. Tests are excluded here, and you may consider creating a separate folder for them. Let's explore the key subfolders inside `src`:
 
-`routes` -> In the rourtes folder, we register a route and the corresponding middleware and controllers to it.
+- **`config`**:
+  This folder handles the configuration and setup of libraries or modules. Examples include:
+  - Setting up `dotenv` for managing environment variables efficiently (see `server-config.js`).
+  - Configuring a logging library to generate meaningful logs.
 
-`middlewares` -> They are just going to intercept the incoming requests where we can write our validators , authentication etc.
+- **`routes`**:
+  Contains route definitions, registering them alongside their corresponding middleware and controllers.
 
-`controllers` -> They are like last middlewares as post them you call you business layer to execute the business logic . In controllers we just recieve the incoming requests and data and then pass it to business layer , 
-and once business layer returns an output , we structure the API response in controllers and send the output.
+- **`middlewares`**:
+  Intercepts incoming requests to perform tasks like validation and authentication.
 
-`repositories` -> This folder contains all the logic using which we interact the DataBase by writing queries, all the raw queries or ORM queries will go here.
+- **`controllers`**:
+  Acts as the final middleware before invoking the business logic. Controllers:
+  - Receive incoming requests and data.
+  - Pass data to the business layer.
+  - Structure API responses and send outputs after processing.
 
-`services` -> Contain the buisness logic and interacts with repositories for data from database.
+- **`repositories`**:
+  Handles all database interactions by writing raw or ORM queries.
 
-`utils` -> Contains helper methods, error classes etc.
+- **`services`**:
+  Implements business logic and communicates with repositories to fetch data from the database.
 
-### SETUP THE PROJECT 
+- **`utils`**:
+  Contains utility functions, helper methods, error classes, and other shared resources.
 
-- Download this template from github and open it in your favourite text editor.
-- In the root directory create a `.env` file and add the following env variables
-```
-    PORT = <port number of your choice>
-```    
-ex:
-```
-    PORT = 3000
-```    
-- Inside the `src/config` folder create a file named as `config.json` and write the following code:
+## Setting Up the Project
 
-```
-    {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
+### 1. Clone the Template
+Download this template from GitHub and open it in your favorite text editor.
+
+### 2. Install Dependencies
+Navigate to the project folder and run:
+```bash
+npm install
 ```
 
-- If you are setting up your development enviroment, then write the username of your db , password of your db and in dialect mention the name of db you are using ex: mysql ,mariadb etc.
+### 3. Configure Environment Variables
+In the root directory, create a `.env` file and define the following variables:
+```env
+PORT=<port number of your choice>
+```
+Example:
+```env
+PORT=3000
+```
 
-- If you are setting up test or prod enviroment , make sure you also replace the host with the hosted db url.
+### 4. Initialize Sequelize
+Navigate to the `src` folder and execute:
+```bash
+npx sequelize init
+```
+This command will generate `migrations` and `seeders` folders, along with a `config.json` file inside the `config` folder.
+
+### 5. Configure Database
+In `config.json`:
+- For development, specify the database `username`, `password`, and `dialect` (e.g., `mysql`, `mariadb`, etc.).
+- For testing or production, replace the `host` field with the hosted database URL.
+
+### 6. Start the Server
+To start the development server, run:
+```bash
+npm run dev
+```
+
+## Why Use This Template?
+- Streamlined project structure for clarity and scalability.
+- Adherence to best practices in coding and project management.
+- Flexible configurations to suit various environments.
+
+Start your Node.js project today with this solid foundation and accelerate your development process!
+
