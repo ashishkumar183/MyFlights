@@ -1,3 +1,4 @@
+// The role of services is to keep the buisness logic.
 const CityRepository = require('../repositories/city-repository'); // Fixed import
 const cityRepository = new CityRepository(); // Create instance
 
@@ -44,9 +45,9 @@ class CityService {
         }
     }
 
-    async getAllCities() {
+    async getAllCities(filter) {
         try {
-            const cities = await cityRepository.getAllCities();
+            const cities = await cityRepository.getAllCities(filter);
             return cities;
         } catch(error) {
             console.log("Error in service layer:", error);

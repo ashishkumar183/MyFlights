@@ -1,3 +1,4 @@
+// The role of controller is to get the request pass it to the backend and when backend processes the request then send it back to the frontend.
 const CityService = require('../services/city-service');
 
 class CityController {
@@ -85,7 +86,7 @@ class CityController {
 
     async getAll(req, res) {
         try {
-            const cities = await CityService.getAllCities();
+            const cities = await CityService.getAllCities(req.query);
             return res.status(200).json({ 
                 data: cities,
                 success: true,

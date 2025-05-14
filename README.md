@@ -29,3 +29,9 @@
 - A flight belongs to an airplane but one airplane can be used in multiple flights .
 - A city has many airports but one airport belongs to a city.
 - One airport can have many flights , but a flight belongs to one airport.
+
+## Tables
+
+I. City -> id , name ,created_at , updated_at
+II. Airport -> id , name , address , city_id , created_at , updated_at
+    relationship : City has many airports and Airports belongs to a city (one to many)....
